@@ -8,10 +8,11 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-  Object.keys(obj).map((key) => {
-    return (obj[key] = obj[key].trim());
+  const objCopy = { ...obj };
+  Object.keys(objCopy).map((key) => {
+    return (objCopy[key] = objCopy[key].trim());
   });
-  return obj;
+  return objCopy;
 }
 
 /**
