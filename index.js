@@ -10,7 +10,7 @@ function trimProperties(obj) {
   // ✨ implement
   const objCopy = { ...obj };
   Object.keys(objCopy).map((key) => {
-    return (objCopy[key] = objCopy[key].trim());
+    objCopy[key] = objCopy[key].trim();
   });
   return objCopy;
 }
@@ -26,7 +26,7 @@ function trimProperties(obj) {
 function trimPropertiesMutation(obj) {
   // ✨ implement
   Object.keys(obj).map((key) => {
-    return (obj[key] = obj[key].trim());
+    obj[key] = obj[key].trim();
   });
   return obj;
 }
@@ -41,6 +41,9 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  const integersArray = integers.map((int) => int.integer);
+  const largest = Math.max(...integersArray);
+  return largest;
 }
 
 class Counter {
