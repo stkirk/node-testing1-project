@@ -50,9 +50,27 @@ describe("[Exercise 4] Counter", () => {
     counter = new utils.Counter(3); // each test must start with a fresh couter
   });
 
-  test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {});
-  // test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {})
-  // test('[8] the count eventually reaches zero but does not go below zero', () => {})
+  test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
+    const expected = 3;
+    const actual = counter.countDown();
+    expect(actual).toBe(expected);
+  });
+  test("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
+    counter.countDown();
+    const expected = 2;
+    const second = counter.countDown();
+    expect(second).toBe(expected);
+  });
+  test("[8] the count eventually reaches zero but does not go below zero", () => {
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    const expected = 0;
+    const actual = counter.countDown();
+    expect(actual).toBe(expected);
+    const lowestCount = counter.countDown();
+    expect(lowestCount).toBe(expected);
+  });
 });
 
 describe("[Exercise 5] Seasons", () => {
