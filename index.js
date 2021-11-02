@@ -8,6 +8,10 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  Object.keys(obj).map((key) => {
+    return (obj[key] = obj[key].trim());
+  });
+  return obj;
 }
 
 /**
@@ -93,8 +97,8 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
   }
 
@@ -156,4 +160,4 @@ module.exports = {
   Counter,
   Seasons,
   Car,
-}
+};
