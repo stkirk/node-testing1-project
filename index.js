@@ -25,6 +25,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  Object.keys(obj).map((key) => {
+    return (obj[key] = obj[key].trim());
+  });
+  return obj;
 }
 
 /**
