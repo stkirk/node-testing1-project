@@ -78,12 +78,48 @@ describe("[Exercise 5] Seasons", () => {
   beforeEach(() => {
     seasons = new utils.Seasons(); // each test must start with fresh seasons
   });
-  test('[9] the FIRST call of seasons.next returns "summer"', () => {});
-  // test('[10] the SECOND call of seasons.next returns "fall"', () => {})
-  // test('[11] the THIRD call of seasons.next returns "winter"', () => {})
-  // test('[12] the FOURTH call of seasons.next returns "spring"', () => {})
-  // test('[13] the FIFTH call of seasons.next returns again "summer"', () => {})
-  // test('[14] the 40th call of seasons.next returns "spring"', () => {})
+  test('[9] the FIRST call of seasons.next returns "summer"', () => {
+    const expected = "summer";
+    const actual = seasons.next();
+    expect(actual).toBe(expected);
+  });
+  test('[10] the SECOND call of seasons.next returns "fall"', () => {
+    const expected = "fall";
+    seasons.next();
+    const actual = seasons.next();
+    expect(actual).toBe(expected);
+  });
+  test('[11] the THIRD call of seasons.next returns "winter"', () => {
+    const expected = "winter";
+    seasons.next();
+    seasons.next();
+    const actual = seasons.next();
+    expect(actual).toBe(expected);
+  });
+  test('[12] the FOURTH call of seasons.next returns "spring"', () => {
+    for (let i = 0; i < 3; i++) {
+      seasons.next();
+    }
+    const expected = "spring";
+    const actual = seasons.next();
+    expect(actual).toBe(expected);
+  });
+  test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
+    for (let i = 0; i < 4; i++) {
+      seasons.next();
+    }
+    const expected = "summer";
+    const actual = seasons.next();
+    expect(actual).toBe(expected);
+  });
+  test('[14] the 40th call of seasons.next returns "spring"', () => {
+    for (let i = 0; i < 39; i++) {
+      seasons.next();
+    }
+    const expected = "spring";
+    const actual = seasons.next();
+    expect(actual).toBe(expected);
+  });
 });
 
 describe("[Exercise 6] Car", () => {
