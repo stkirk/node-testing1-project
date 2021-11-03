@@ -107,7 +107,6 @@ class Seasons {
       return this.seasons[this.count];
     } else {
       this.count += 1;
-
       return this.seasons[this.count];
     }
   }
@@ -124,6 +123,7 @@ class Car {
     this.odometer = 0; // car initilizes with zero miles
     this.tank = tankSize; // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.mpg = mpg;
   }
 
   /**
@@ -141,6 +141,14 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    const range = this.tank * this.mpg;
+    if (distance > range) {
+      this.tank = 0;
+      return `ran out of gas after ${range} miles`;
+    } else {
+      this.tank -= distance / this.mpg;
+      return (this.odometer += distance);
+    }
   }
 
   /**
@@ -156,6 +164,15 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    if (gallons + this.tank > 20) {
+      this.tank = 20;
+      return this.tank * this.mpg;
+    } else if (gallons < 0) {
+      return this.tank * this.mpg;
+    } else {
+      this.tank = gallons;
+      return this.tank * this.mpg;
+    }
   }
 }
 
